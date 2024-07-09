@@ -5,6 +5,7 @@ int randomNumber(int From, int To) {
     int randNum = rand() % (To - From + 1) + From;
     return randNum;
 }
+
 void random3x3Array(int matrixArray [3][3],int rows,int cols) {
     for(int i = 0;i < rows; i++) {
         for(int j = 0 ; j < cols ; j++) {
