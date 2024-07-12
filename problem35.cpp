@@ -20,10 +20,29 @@ void printStringWords(string S1) {
     }
     cout << StringTest;
 }
+void printStringWords2(string S1) {
+    string Sword = "";
+    string delm = " ";
+    short pos;
+    while((pos = S1.find(' ')) != string::npos) {
+        Sword = S1.substr(0,pos);
+        if(Sword != " ") {
+            cout << Sword<<endl;
+        }
+        S1.erase(0,pos + delm.length());
+        pos = 0;
+    }
+    if(S1 != " ") {
+        cout <<S1;
+    }
+
+}
+
+
 
 int main() {
     string S1 = ReadString();
-    printStringWords(S1);
+    printStringWords2(S1);
 
     return 0;
 }
