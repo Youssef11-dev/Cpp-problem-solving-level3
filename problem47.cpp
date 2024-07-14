@@ -11,13 +11,6 @@ struct stClientData {
     int balance;
 };
 
-string Join(vector<string> S,string sep) {
-    string String = "";
-    for(string &word : S) {
-        String = String + word + sep;
-    }
-    return String.substr(0,String.length()-sep.length());
-}
 string convertRecordToline(stClientData data,string sep) {
     string String = "";
     String += data.accountNumber + sep;
@@ -27,8 +20,6 @@ string convertRecordToline(stClientData data,string sep) {
     String += to_string(data.balance);
     return String;
 }
-
-
 void saveStringDataToFile(string fileName,string String) {
     fstream File;
     File.open(fileName,ios::out|ios::app);
@@ -38,6 +29,7 @@ void saveStringDataToFile(string fileName,string String) {
         File.close();
     }
 }
+
 stClientData ReaddNewClient() {
     stClientData data;
     cout << "Account number : ";
@@ -64,6 +56,7 @@ void addNewClient() {
 void addClients() {
     char ask = 'y';
     do {
+        cout << "Adding new Client\n\n";
         addNewClient();
         cout << "Client added successfuly , do you want to add more Y/N? ";
         cin >> ask;
@@ -83,6 +76,7 @@ vector<string> SplitFunction(string S1,string seprator) {
     words.push_back(S1);
     return words;
 }
+
 stClientData convertLineToRecord(string String,string sep) {
     stClientData data;
     vector<string> temp;
